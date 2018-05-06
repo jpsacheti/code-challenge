@@ -1,7 +1,5 @@
 package com.atos.codechallenge.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
@@ -9,9 +7,7 @@ public class Project {
     private String name;
     private String customer;
     private BigDecimal valueOfProject;
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
     private ZonedDateTime dtBegin;
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
     private ZonedDateTime dtEnd;
 
     public String getName() {
@@ -56,10 +52,8 @@ public class Project {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Project{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", customer='").append(customer).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "Project{" + "name='" + name + '\'' +
+                ", customer='" + customer + '\'' +
+                '}';
     }
 }

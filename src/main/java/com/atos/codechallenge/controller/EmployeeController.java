@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller("/employee")
+@Controller("/")
 public class EmployeeController {
     private final EmployeeService service;
 
@@ -19,6 +19,7 @@ public class EmployeeController {
     public ModelAndView findAll(){
         ModelAndView mav = new ModelAndView("/employees");
         mav.addObject("employees", service.listAll());
+        mav.addObject("filters", service.getAvailableFilters());
         return mav;
     }
 
