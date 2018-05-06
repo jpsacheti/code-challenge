@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -28,8 +27,6 @@ public class EmployeeDao {
     }
 
     public List<Employee> listAll(){
-        List<Employee> safeCopy = new ArrayList<>();
-        Collections.copy(safeCopy, mockData);
-        return safeCopy;
+        return new ArrayList<>(mockData);
     }
 }

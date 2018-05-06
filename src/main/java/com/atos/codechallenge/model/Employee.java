@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class Employee {
@@ -65,6 +66,10 @@ public class Employee {
         this.skills = skills;
     }
 
+    public String getFormattedSkills() {
+        return getSkills().stream().collect(Collectors.joining(", "));
+    }
+
     public List<String> getCertification() {
         return certification;
     }
@@ -83,11 +88,9 @@ public class Employee {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Employee{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", role='").append(role).append('\'');
-        sb.append(", manager='").append(manager).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "Employee{" + "name='" + name + '\'' +
+                ", role='" + role + '\'' +
+                ", manager='" + manager + '\'' +
+                '}';
     }
 }
